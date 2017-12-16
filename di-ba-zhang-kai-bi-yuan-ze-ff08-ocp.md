@@ -1,5 +1,7 @@
 # 第八章 开闭原则（OCP）
 
+![](/assets/8/c8.png)
+
 开闭原则由Bertrand Meyer在1988年发明，原则描述为：
 
 > 软件工件应当对扩展开放，对修改关闭
@@ -26,6 +28,8 @@
 
 应用SRP，我们可能提出这样得数据流视图如图8.1。一些analyser考察财物数据和产生需要报告的数据，将其交由不同的reporter处理。
 
+![](/assets/8/Figure_8.1_Applying_the_SRP.png)图8.1 应用SRP
+
 这个想法的本质是生成报告设计到两个不同的职责：计算报告数据，数据的web或打印表格的呈现。
 
 做了分离之后，我们需要组织源码的依赖以确保这之中职责的变化不会导致其它组件，并且新的组织确保可以不修改的做扩展。
@@ -34,9 +38,15 @@
 
 用&lt;I&gt;标记的类表示接口，标记&lt;DS&gt;表示数据结构，人角箭头表示调用关系，三角箭头表示实现或继承关系。
 
+![](/assets/8/Figure_8.2_Partitioning_the_processes_into_classes_and_separating_the_classes_into_components.png)
+
+图8.2 把处理分成了多个类，把这些类分成了多个组件
+
 第一件事应该去关注所有的依赖都是源码依赖，从类A执行类B的箭头表示源码里类A用到了类B的名字，但类B没有用到类A的名字。因此，图8.2，FinancialDataMapper类由于实现关系，晓得FinancialDataGateway类，但FinancialDataGateway类并不晓得FinancialDataMapper类。
 
 下一件事应该关注每个双线框之间的关系都是单项指向的。这意味着所有组件的关系都是单向的，组件关系如图8.3，这些箭头指向了我们要避免被变化影响的组件。
+
+![](/assets/8/Figure_8.3_The_component_relationships_are_unidirectional.png)图8.3 各组件间关系是单向的
 
 让我再说一次，如果组件A应该避免被组件B的变化影响，那么组件B英爱依赖组件A。
 
@@ -65,26 +75,4 @@ FinancialReportRequester接口有不同的目的。它避免FinancialReportContr
 ## 结论
 
 开闭原则是系统架构隐藏的驱动力量，它的目标是让系统不发生重大的修改而易于扩展。这个目标是通过分割系统成各个组件，规划组件的依赖岑寂关系，保护高层级避免受低层级组件影响实现的。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
