@@ -46,7 +46,9 @@
 
 下一件事应该关注每个双线框之间的关系都是单项指向的。这意味着所有组件的关系都是单向的，组件关系如图8.3，这些箭头指向了我们要避免被变化影响的组件。
 
-![](/assets/8/Figure_8.3_The_component_relationships_are_unidirectional.png)图8.3 各组件间关系是单向的
+![](/assets/8/Figure_8.3_The_component_relationships_are_unidirectional.png)
+
+图8.3 各组件间关系是单向的
 
 让我再说一次，如果组件A应该避免被组件B的变化影响，那么组件B英爱依赖组件A。
 
