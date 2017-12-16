@@ -85,9 +85,13 @@ EmployeeFacade类包含非常少的代码，它只负责实例化和委托访问
 
 ## 结论
 
-单一职责原则是关于函数和类，但它出现在两个不同层面上的不同形式。组件层面上，它成了共同封闭原则，在架构层面上，它成为负责创造建筑边界的变革轴心。这些在之后的章节里我们将会学习到。
+单一职责原则是关于函数和类，但它出现在两个不同层面上的不同形式。组件层面上，它成了共同封闭原则，在架构层面上，它成了架构边界创建的改变轴[^2]。这些在之后的章节里我们将会学习到。
+
+
 
 
 
 [^1]: Unfortunately, the words “user” and “stakeholder” aren’t really the right words to use here. There will likely be more than one user or stakeholder who wants the system changed in the same way. Instead, we’re really referring to a group—one or more people who require that change. We’ll refer to that group as an actor.
+
+[^2]: At the architectural level, it becomes the Axis of Change responsible for the creation of Architectural Boundaries.
 
