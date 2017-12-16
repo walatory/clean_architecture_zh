@@ -89,9 +89,7 @@ EmployeeFacade类包含非常少的代码，它只负责实例化和委托访问
 
 
 
-
-
 [^1]: Unfortunately, the words “user” and “stakeholder” aren’t really the right words to use here. There will likely be more than one user or stakeholder who wants the system changed in the same way. Instead, we’re really referring to a group—one or more people who require that change. We’ll refer to that group as an actor.
 
-[^2]: At the architectural level, it becomes the Axis of Change responsible for the creation of Architectural Boundaries.
+[^2]: At the architectural level, it becomes the Axis of Change responsible for the creation of Architectural Boundaries.
 
