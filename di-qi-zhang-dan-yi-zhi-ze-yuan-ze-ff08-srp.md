@@ -1,5 +1,7 @@
 # 第七章 单一职责原则（SRP）
 
+![](/assets/7/c7.png)
+
 在接下来的所有原则（SOLID）中，单一职责原则可能是比较难懂的，这很可能因为它的名字取得不准确，很容易让开发者从这个名字中认为它的含义是每个模块都只做一件事。
 
 诚然，单一职责原则有点像类似的含义，一个函数有且只做一件事。我们用单一职责原则去重构一个繁杂庞大的函数成更小的函数，我们在最底的层面上使用它。但是，这并不是我们的SOLID原则中的单一职责原则！
@@ -29,6 +31,10 @@
 我最新的例子是工资应用里的Employee这个类。它右三个方法：calculatePay\(\) , reportHours\(\) , 和  
 save\(\) \(图7.1\)。
 
+![](/assets/7/Figure_7.1_The_Employee_class.png)
+
+图7.1 Employee类
+
 这个类违反了SRP是因为这三个方法是对三个十分不同的角色负责的。
 
 * calculatePay\(\)方法描述了会计部门，他们对CFO报告。
@@ -37,7 +43,11 @@ save\(\) \(图7.1\)。
 
 把这三个方法的源代码放在一个Employee类，开发者将使这三个角色相互耦合。这种耦合会造成CFO团队的动作将影响COO团队的所依赖的部分。
 
-比如，设想calculatePay\(\)函数和reportHours\(\)函数公用了一个计算非工作日时间的公用算法。对于开发者并不希望出现重复代码，因此将这个算法封装成一个regularHours\(\)函数。
+比如，设想calculatePay\(\)函数和reportHours\(\)函数公用了一个计算非工作日时间的公用算法。对于开发者并不希望出现重复代码，因此将这个算法封装成一个regularHours\(\)函数（图7.2）。
+
+![](/assets/7/Figure_7.2_Shared_algorithm.png)
+
+图7.2 公用算法
 
 现在假设CFO团队决定将非工作日的时间计算进行调整，相反，人力资源部门的COO团队对非工作日时间有不同的应用，并不希望调整。
 
@@ -71,23 +81,27 @@ save\(\) \(图7.1\)。
 
 这问题有很多不同的解决方法。每种都把这些函数移动不同的类中。
 
-也许最显而易见的解决办法就是把数据从函数中分离出去，这三个类共用EmployeeData实例，这实例只是一个简单的数据结构，没有其他方法。
+也许最显而易见的解决办法就是把数据从函数中分离出去，这三个类共用EmployeeData实例，这实例只是一个简单的数据结构，没有其他方法（图7.3）。每个类仅了了自己特殊的函数保存在源文件中，这三类不允许相互可见，这样意外重复就避免了。
 
-每个类仅了了自己特殊的函数保存在源文件中，这三类不允许相互可见，这样意外重复就避免了。
+![](/assets/7/Figure_7.3_The_three_classes_do_not_know_about_each_other.png)
+
+图7.3 三个类互不可见
 
 这种方案的缺点是开发者现在有三个类需要实例化和跟踪。解决这个困境的常见的办法是用门面模式。（图7.4）
+
+![](/assets/7/Figure_7.4_The_Facade_pattern.png)图7.4 门面模式
 
 EmployeeFacade类包含非常少的代码，它只负责实例化和委托访问后面的类和函数。
 
 一些开发者倾向于把重要的业务规则写得离数据更近。我们可以这么做：把重要的方法保留到之前的Employee类里，然后用这个类作为门面访问更少的函数。（图7.5）
+
+![](/assets/7/Figure_7.5_The_most_important_method_is_kept_in_the_original_Employee_class_and_used_as_a_Facade_for_the_lesser_functions.png)图7.5 把重要的方法保留到之前的Employee类里，然后用这个类作为门面访问更少的函数
 
 你可能拒绝这些方案，因为你坚持每个类都应该之包含一个方法。对以上这个例子很难做到。函数的数量取决于计算费用，生成报表或保存数据这些方法，每个例子都可能有很多函数，每个类都应该会有很多的私有方法。
 
 ## 结论
 
 单一职责原则是关于函数和类，但它出现在两个不同层面上的不同形式。组件层面上，它成了共同封闭原则，在架构层面上，它成了架构边界创建的改变轴[^2]。这些在之后的章节里我们将会学习到。
-
-
 
 [^1]: Unfortunately, the words “user” and “stakeholder” aren’t really the right words to use here. There will likely be more than one user or stakeholder who wants the system changed in the same way. Instead, we’re really referring to a group—one or more people who require that change. We’ll refer to that group as an actor.
 
