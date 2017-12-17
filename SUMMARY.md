@@ -6,4 +6,5 @@
 * [第八章 开闭原则（OCP）](di-ba-zhang-kai-bi-yuan-ze-ff08-ocp.md)
 * [第九章 里氏代换原则（LSP）](di-jiu-zhang-li-shi-dai-huan-yuan-ze-ff08-lsp.md)
 * [第十章 接口隔离原则（SIP）](di-shi-zhang-jie-kou-ge-li-yuan-ze-ff08-sip.md)
+* [第十一章 依赖倒置原则（DIP）](di-shi-yi-zhang-yi-lai-dao-zhi-yuan-ze-ff08-dip.md)
 
