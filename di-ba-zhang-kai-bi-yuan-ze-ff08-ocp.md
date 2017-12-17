@@ -72,7 +72,7 @@ FinancialReportRequester接口有不同的目的。它避免FinancialReportContr
 
 所以，即使我们更高优先级保护Interactor避免被Controller变化影响，我们也隐藏了Interactor的内部信息，避免Interactor的改变影响Controller。
 
-## 结论
+## 小结
 
 开闭原则是系统架构隐藏的驱动力量，它的目标是让系统不发生重大的修改而易于扩展。这个目标是通过分割系统成各个组件，规划组件的依赖岑寂关系，保护高层级避免受低层级组件影响实现的。
 

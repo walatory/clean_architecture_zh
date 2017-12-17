@@ -8,12 +8,20 @@
 
 ## 使用继承的引导指南
 
-假设我们名为License的类，如图9.1。这个类有名为calcFee\(\)的方法，被应用Billing调用。License有两个子类型PersonalLicense 和BusinessLicense，他们的calcFee方法有着不同的算法实现。  
+假设我们名为License的类，如图9.1。这个类有名为calcFee\(\)的方法，被应用Billing调用。License有两个子类型PersonalLicense 和BusinessLicense，他们的calcFee方法有着不同的算法实现。
+
+![](/assets/9/Figure_9.1_License_,_and_its_derivatives,_conform_to_LSP.png)
+
+图9.1 License和其相关类，满足LSP  
 这个设计满足LSP，因为Billing应用的行为不依赖具体用的是哪个子类型，两个子类型都可以替换掉License类型。
 
 ## 正方形/矩形问题
 
 这是经典的违反LSP的例子，著名的（我觉得）正方形/矩形问题（如图9.2\)
+
+![](/assets/9/Figure_9.2_The_infamous_square/rectangle_problem.png)
+
+图9.2 “不”著名的正方形/矩形问题
 
 在这个例子里，Square并不是Rectangle的恰当的子类型，因为Rectangle的高度和宽度是独立可变的；相反，Square里的宽度和高度必须是一起变化的。如果User相信Rectangle的定义，很容易遇到麻烦，例子如下：
 
@@ -68,9 +76,8 @@ if (driver.getDispatchUri().startsWith("acme.com"))…
 
 | URI | Dispatch Format |
 | :--- | :--- |
-| Acme.com| /pickupAddress/%s/pickupTime/%s/dest/%s |
+| Acme.com | /pickupAddress/%s/pickupTime/%s/dest/%s |
 | \*.\* | /pickupAddress/%s/pickupTime/%s/destination/%s |
-
 
 我们的架构师在REST服务的接口并不能相互替的情况，就得增加意义重大又复杂的机制来处理。
 
