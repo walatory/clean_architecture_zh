@@ -5,4 +5,5 @@
 * [第七章 单一职责原则（SRP）](di-qi-zhang-dan-yi-zhi-ze-yuan-ze-ff08-srp.md)
 * [第八章 开闭原则（OCP）](di-ba-zhang-kai-bi-yuan-ze-ff08-ocp.md)
 * [第九章 里氏代换原则（LSP）](di-jiu-zhang-li-shi-dai-huan-yuan-ze-ff08-lsp.md)
+* [第十章 接口隔离原则（SIP）](di-shi-zhang-jie-kou-ge-li-yuan-ze-ff08-sip.md)
 
