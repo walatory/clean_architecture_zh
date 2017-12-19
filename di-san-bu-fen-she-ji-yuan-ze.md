@@ -18,9 +18,5 @@ SOLID历史很悠久，我开始接触是在20世纪80年代末，在USENET（�
 
 
 
-
-
-
-
-[^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
+[^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
 
