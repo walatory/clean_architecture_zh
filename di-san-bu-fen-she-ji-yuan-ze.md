@@ -14,9 +14,23 @@ SOLID原则的目标是创建中层软件架构，满足：
 
 就像好砖也可能搭得一塌糊涂，良好设计的中层组件也可能把系统搭得一沓糊涂。处于这个原因，我们讲完SOLID原则，我们将继续江组件世界和他们同样重要的原则，进而再讲高层架构原则。
 
-SOLID历史很悠久，我开始接触是在20世纪80年代末，在USENET（类似现在的Facebook）上争论软件设计原则。多年以来，这些原则不断发生改变，一些原则消失了，一些合并了，还有一些仍在增加。到了21世纪初期逐渐稳定下来了，我将以不同次序讲述这些原则。
+SOLID历史很悠久，我开始整理这些原则是在20世纪80年代末，在USENET（类似现在的Facebook）上争论软件设计原则。多年以来，这些原则不断发生改变，一些原则消失了，一些合并了，还有一些仍在增加。到了21世纪初期逐渐稳定下来了，我将以不同次序讲述这些原则。
+
+大约在2004年， Michael Feathers发了一封电子邮件给我，如果他重排这些原则，这些原则的首字母是单词SOLID的拼写，这就是SOLID原则的由来。
+
+以下章节将详细的讲述每个原则，以下是笼统的总结：
+
+* SRP：单一职责原则
+* OCP：开闭原则
+* LSP：里氏替换原则
+* ISP：接口隔离原则
+* DIP：依赖倒置原则
+
+多年来，这些原则在很多不同出版物都有描述。以下章节将关注这些原则在架构上的一样，而不是这些原则的细节套路。如果你对这些原则还很陌生，建议你可以用脚注的文档预先学习[^2]。
 
 
 
 [^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
+
+[^2]: Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod, and https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)\(or just google SOLID\)
 
