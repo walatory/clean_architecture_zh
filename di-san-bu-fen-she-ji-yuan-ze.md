@@ -21,14 +21,28 @@ SOLID历史很悠久，我开始整理这些原则是在20世纪80年代末，�
 以下章节将详细的讲述每个原则，以下是笼统的总结：
 
 * SRP：单一职责原则
+
+Conway's law\(康威定律\)的积极推论：软件系统的最佳结构很大程度上受到使用它的组织的交互结构的影响，因此每个软件模块有且只有一个理由需要改变。
+
 * OCP：开闭原则
+
+1988年Bertrand Meyer提出的原则，要点在于，要使软件系统易于更改，必须将其设计成允许通过添加新代码来更改这些系统的行为，而不是更改现有的代码。
+
 * LSP：里氏替换原则
+
+Barbara Liskov在1988年提出的著名的子类型定义，简而言之，该原则描述要使系统建立在可替换的部分上，这些部分应该遵循可相互替换的协定。
+
 * ISP：接口隔离原则
+
+该原则建议设计者避免依赖于他们不不到的东西
+
 * DIP：依赖倒置原则
+
+代码的高层逻辑不该是依赖于代码底层的实现细节，而是细节依赖于高层逻辑。
 
 多年来，这些原则在很多不同出版物都有描述。以下章节将关注这些原则在架构上的一样，而不是这些原则的细节套路。如果你对这些原则还很陌生，建议你可以用脚注的文档预先学习[^2]。
 
 [^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
 
-[^2]: _Agile Software Development, Principles_, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,[http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design\)\) (或者Google SOLID\)
+[^2]: _Agile Software Development, Principles_, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,[http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29\) \(或者Google SOLID\)
 
