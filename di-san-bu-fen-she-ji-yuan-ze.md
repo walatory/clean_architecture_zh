@@ -28,11 +28,7 @@ SOLID历史很悠久，我开始整理这些原则是在20世纪80年代末，�
 
 多年来，这些原则在很多不同出版物都有描述。以下章节将关注这些原则在架构上的一样，而不是这些原则的细节套路。如果你对这些原则还很陌生，建议你可以用脚注的文档预先学习[^2]。
 
-
-
-
-
 [^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
 
-[^2]: Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod, andhttps://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\) \(or just google SOLID\)
+[^2]: Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,[http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design\)\) \(or just google SOLID\)
 
