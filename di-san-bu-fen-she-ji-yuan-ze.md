@@ -30,7 +30,9 @@ SOLID历史很悠久，我开始整理这些原则是在20世纪80年代末，�
 
 
 
+
+
 [^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
 
-[^2]: Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod, and https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)\(or just google SOLID\)
+[^2]: Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod, andhttps://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\) \(or just google SOLID\)
 
