@@ -1,5 +1,7 @@
 # 第三部分 设计原则
 
+![](/assets/p3.png)
+
 良好的软件系统都是从整洁的代码开始。一方面，如果砖块早不好，建筑的架构无从谈起，另一方面，好的砖块也可能搭得一塌糊涂。这就引出了SOLID原则了。
 
 SOLID原则告诉我们怎样在类中安排我们的程序和数据结构，这些类之间的关系应该如何。用“类”这个词并不意味着这些原则只能用在面向对象的软件里。一个类简单来说是一组函数和数据的耦合。每个软件系统包含如此多组，他们可能被称为类或其他名字。SOLID原则就应用于这些组。
@@ -44,5 +46,5 @@ Barbara Liskov在1988年提出的著名的子类型定义，简而言之，该�
 
 [^1]: The term “mid-level” refers to the fact that these principles are applied by programmers working at the module level.
 
-[^2]: _Agile Software Development, Principles_, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,[http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29\) \(或者Google SOLID\)
+[^2]: _Agile Software Development, Principles_, Patterns, and Practices, Robert C. Martin, Prentice Hall, 2002,[http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod), [https://en.wikipedia.org/wiki/SOLID\_\(object-oriented\_design\)](https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29%29 %28或者Google SOLID\)
 
