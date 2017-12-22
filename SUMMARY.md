@@ -9,4 +9,5 @@
 * [第十章 接口隔离原则（SIP）](di-shi-zhang-jie-kou-ge-li-yuan-ze-ff08-sip.md)
 * [第十一章 依赖倒置原则（DIP）](di-shi-yi-zhang-yi-lai-dao-zhi-yuan-ze-ff08-dip.md)
 * [第四部分 组件原则](di-si-bu-fen-zu-jian-yuan-ze.md)
+* [第十二章 组件](di-shi-er-zhang-zu-jian.md)
 
