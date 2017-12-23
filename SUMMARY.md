@@ -11,6 +11,5 @@
 * [第十一章 依赖倒置原则（DIP）](di-shi-yi-zhang-yi-lai-dao-zhi-yuan-ze-ff08-dip.md)
 * [第四部分 组件原则](di-si-bu-fen-zu-jian-yuan-ze.md)
 * [第十二章 组件](di-shi-er-zhang-zu-jian.md)
-
-
+* [第十三章 组件聚合](di-shi-san-zhang-zu-jian-ju-he.md)
 
