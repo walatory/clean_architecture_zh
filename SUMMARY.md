@@ -2,7 +2,7 @@
 
 * [关于](README.md)
 *  [目录](SUMMARY.md)
-* [第二章 从砖开始：编程范式]()
+* [第二章 从砖开始：编程范式]
     * [第六章 函数式编程](di-liu-zhang-han-shu-shi-bian-cheng.md)
 * [第三部分 设计原则](di-san-bu-fen-she-ji-yuan-ze.md)
     * [第七章 单一职责原则（SRP）](di-qi-zhang-dan-yi-zhi-ze-yuan-ze-ff08-srp.md)
