@@ -12,4 +12,5 @@
 * [第四部分 组件原则](di-si-bu-fen-zu-jian-yuan-ze.md)
 * [第十二章 组件](di-shi-er-zhang-zu-jian.md)
 * [第十三章 组件聚合](di-shi-san-zhang-zu-jian-ju-he.md)
+* [第十四章 组件耦合](di-shi-si-zhang-zu-jian-ou-he.md)
 
