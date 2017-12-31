@@ -71,6 +71,14 @@
 1. 应用依赖倒置原则（DIP），如图14.3中，我们创建了一个接口，接口中是User需要的方法。我们将接口放入Entities组件，接口的实现放入Authorizer组件，Entities和Authorizer的依赖就倒置了，进而解除了循环依赖。
 2. 创建一个新组件，Entities和Authorizer都依赖这个新组件。把问题的类都移到这个新组件。
 
+![](/assets/14/Figure_14.3_Inverting_the_dependency_between_Entities_and_Authorizer.png)
+
+图14.3 Entities和Authorizer组件间的依赖转置
+
+![](/assets/14/Figure_14.4_The_new_component_that_both_Entities_and_Authorizer_depend_on.png)
+
+图14.4 Entities和Authorizer组件都依赖于新组件
+
 ### 抖动
 
 第二个方法：组件结构在需求变化中是不稳定的。确实，随着应用程序的增长，组件依赖结构也增长，并且抖动，因此，我们得实时注意依赖结构中循环依赖的产生。但它产生时，要及时去解除，有时这意味着创建新组件，使得依赖结构增长，更容易出现循环依赖。
