@@ -118,11 +118,11 @@
 
 如图14.5的稳定组件x。三个组件依赖于x，所以x有三个好理由不改变。我们说x对这三个组件负责，相反，x不依赖其他的组件，没有其他外来因素改变x，我们说他说独立的。
 
-![](/assets/14/Figure_14.5_X_:_a_stable_component.png)图14.5 组件x：一个稳定的组件
+![](/assets/14/Figure_14.5_X_a_stable_component.png)图14.5 组件x：一个稳定的组件
 
 如图14.6的不稳定组件y，没有其他组件依赖y，我们称y是无责的，y依赖于其他三个组件，所以可能有来自三个外部的变化源，我们称y是依赖的。
 
-![](/assets/14/Figure_14.6_Y_:_a_very_unstable_component.png)
+![](/assets/14/Figure_14.6_Y_a_very_unstable_component.png)
 
 图14.6 组件y：一个十分不稳定的组件
 
