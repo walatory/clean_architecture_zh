@@ -14,6 +14,8 @@
   * [第十二章 组件](di-shi-er-zhang-zu-jian.md)
   * [第十三章 组件聚合](di-shi-san-zhang-zu-jian-ju-he.md)
   * [第十四章 组件耦合](di-shi-si-zhang-zu-jian-ou-he.md)
+* [第五部分 架构](di-wu-bu-fen-jia-gou.md)
+  * [第十五章 架构是什么？](di-shi-wu-zhang-jia-gou-shi-shi-yao-ff1f.md)
 
 
 
