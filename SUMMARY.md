@@ -4,6 +4,7 @@
 * [目录](SUMMARY.md)
 * [第一部分 介绍](di-yi-bu-fen-jie-shao.md)
   * [第一章 设计和架构是什么？](di-yi-bu-fen-jie-shao/di-yi-zhang-she-ji-he-jia-gou-shi-shi-yao-ff1f.md)
+  * [第二章 两个值的故事](di-yi-bu-fen-jie-shao/di-er-zhang-liang-ge-zhi-de-gu-shi.md)
 * 第二部分 从砖开始：编程范式
   * [第六章 函数式编程](di-liu-zhang-han-shu-shi-bian-cheng.md)
 * [第三部分 设计原则](di-san-bu-fen-she-ji-yuan-ze.md)
