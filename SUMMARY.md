@@ -8,7 +8,6 @@
 * [第二部分 从砖开始：编程范式](di-er-bu-fen-cong-zhuan-kai-shi-ff1a-bian-cheng-fan-shi.md)
   * [第三章 范式概述](di-san-zhang-fan-shi-gai-shu.md)
   * [第六章 函数式编程](di-liu-zhang-han-shu-shi-bian-cheng.md)
-* [第三章 范式概述](di-san-zhang-fan-shi-gai-shu.md)
 * [第三部分 设计原则](di-san-bu-fen-she-ji-yuan-ze.md)
   * [第七章 单一职责原则（SRP）](di-qi-zhang-dan-yi-zhi-ze-yuan-ze-ff08-srp.md)
   * [第八章 开闭原则（OCP）](di-ba-zhang-kai-bi-yuan-ze-ff08-ocp.md)
