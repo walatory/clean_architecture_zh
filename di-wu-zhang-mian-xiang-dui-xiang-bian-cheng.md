@@ -12,58 +12,60 @@
 
 ## 封装
 
-引用封装作为面向对象定义的一部分的原因是面向对象语言提供简单而有效的数据和函数封装。 因此，一行代码可以牵动一组密切关联的数据和函数。 除此之外，数据是隐藏的，只有一些函数才知道这些数据。 我们将这个概念看作是一个类的私有数据成员和公共成员函数。 
+引用封装作为面向对象定义的一部分的原因是面向对象语言提供简单而有效的数据和函数封装。 因此，一行代码可以牵动一组密切关联的数据和函数。 除此之外，数据是隐藏的，只有一些函数才知道这些数据。 我们将这个概念看作是一个类的私有数据成员和公共成员函数。
 
 这个想法当然不是面向对象所特有的。 的确，我们在C中有完美的封装。考虑这个简单的C程序：
 
-``` C
+```C
 point.h
 -------------------------------
 struct Point;
 struct Point* makePoint(double x, double y);
 double distance (struct Point *p1, struct Point *p2);
 ```
-``` C
+
+```C
 point.c
 -------------------------------
 #include "point.h"
 #include <stdlib.h>
 #include <math.h>
 struct Point {
-	double x,y;
+    double x,y;
 };
 struct Point* makepoint(double x, double y) {
-	struct Point* p = malloc(sizeof(struct Point));
-	p->x = x;
-	p->y = y;
-	return p;
+    struct Point* p = malloc(sizeof(struct Point));
+    p->x = x;
+    p->y = y;
+    return p;
 }
 double distance(struct Point* p1, struct Point* p2) {
-	double dx = p1->x - p2->x;
-	double dy = p1->y - p2->y;
-	return sqrt(dx*dx+dy*dy);
+    double dx = p1->x - p2->x;
+    double dy = p1->y - p2->y;
+    return sqrt(dx*dx+dy*dy);
 }
 ```
-使用point.h的用户不能访问struct Point的成员。虽然可以调用makePoint()和distance()函数，但是绝对对Point中数据结构和函数的实现一无所知。
+
+使用point.h的用户不能访问struct Point的成员。虽然可以调用makePoint\(\)和distance\(\)函数，但是绝对对Point中数据结构和函数的实现一无所知。
 
 这是完美的封装，但并非面向对象语言。C语言程序员总是这样做这件事，我们预先在头文件里声明数据结构和函数，然后在实现的文件里写实现。我们代码的使用者不会访问实现文件里的元素。
 
 但是C++语言的面向对象到来了，它突破了C语言的完美封装。
 
-``` C++
+```C++
 point.h
 -------------------------------
 class Point {
 public:
-	Point(double x, double y);
-	double distance(const Point& p) const;
+    Point(double x, double y);
+    double distance(const Point& p) const;
 private:
-	double x;
-	double y;
+    double x;
+    double y;
 };
 ```
 
-``` C++
+```C++
 point.cc
 -------------------------------
 #include "point.h"
@@ -72,9 +74,9 @@ Point::Point(double x, double y)
 : x(x), y(y)
 {}
 double Point::distance(const Point& p) const {
-	double dx = x-p.x;
-	double dy = y-p.y;
-	return sqrt(dx*dx + dy*dy);
+    double dx = x-p.x;
+    double dy = y-p.y;
+    return sqrt(dx*dx + dy*dy);
 }
 ```
 
@@ -88,11 +90,11 @@ double Point::distance(const Point& p) const {
 
 如果面向对象语言没有给我们更好的封装，那么他们肯定会给我们继承特性。
 
-可能吧，继承就是在一个封闭范围内重新声明一组变量和函数。 这是C程序员在有面向对象语言之前就能手动做的事情。 
+可能吧，继承就是在一个封闭范围内重新声明一组变量和函数。 这是C程序员在有面向对象语言之前就能手动做的事情。
 
 考虑以下这个程序和原来的point.h C程序：
 
-``` C
+```C
 namedPoint.h
 ----------------------------
 struct NamedPoint;
@@ -101,41 +103,42 @@ void setName(struct NamedPoint* np, char* name);
 char* getName(struct NamedPoint* np);
 ```
 
-``` C
+```C
 namedPoint.c
 ----------------------------
 #include "namedPoint.h"
 #include <stdlib.h>
 struct NamedPoint {
-	double x,y;
-	char* name;
+    double x,y;
+    char* name;
 };
 struct NamedPoint* makeNamedPoint(double x, double y, char* name) {
 struct NamedPoint* p = malloc(sizeof(struct NamedPoint));
-	p->x = x;
-	p->y = y;
-	p->name = name;
-	return p;
+    p->x = x;
+    p->y = y;
+    p->name = name;
+    return p;
 }
 void setName(struct NamedPoint* np, char* name) {
-	np->name = name;
+    np->name = name;
 }
 char* getName(struct NamedPoint* np) {
-	return np->name;
+    return np->name;
 ```
-``` C
+
+```C
 main.c
 ----------------------------
 #include "point.h"
 #include "namedPoint.h"
 #include <stdio.h>
 int main(int ac, char** av) {
-	struct NamedPoint* origin = makeNamedPoint(0.0, 0.0, "origin");
-	struct NamedPoint* upperRight = makeNamedPoint (1.0, 1.0, "upperRight");
-	printf("distance=%f\n",
-		distance(
-			(struct Point*) origin,
-			(struct Point*) upperRight));
+    struct NamedPoint* origin = makeNamedPoint(0.0, 0.0, "origin");
+    struct NamedPoint* upperRight = makeNamedPoint (1.0, 1.0, "upperRight");
+    printf("distance=%f\n",
+        distance(
+            (struct Point*) origin,
+            (struct Point*) upperRight));
 }
 ```
 
@@ -145,47 +148,48 @@ int main(int ac, char** av) {
 
 因此，我们可以说在面向对象语言发明之前就已经有了一种继承。 但是，这个陈述不是真的。虽然我们有这个技巧，但它不如真正的继承方便。 而且，通过这种技巧来实现多重继承是相当困难的。
 
-还要注意，在main.c中，我得将NamedPoint参数转换为Point。在一个真正的面向对象的语言中，这种向上转型是隐含的。 
+还要注意，在main.c中，我得将NamedPoint参数转换为Point。在一个真正的面向对象的语言中，这种向上转型是隐含的。
 
-可以这么说，虽然面向对象语言并没有给我们带来全新的东西，但它确实使数据结构的伪装变得更为方便。 
+可以这么说，虽然面向对象语言并没有给我们带来全新的东西，但它确实使数据结构的伪装变得更为方便。
 
-回顾一下：我们对面向对象的封装一分都不给，也许可以给继承半分。到目前为止，这不是一个很好的分数。 
+回顾一下：我们对面向对象的封装一分都不给，也许可以给继承半分。到目前为止，这不是一个很好的分数。
 
 但还有一个特性需要考虑。
 
 ## 多态
+
 在面向对象语言之前我们用过多态特性吗？当然有，考虑简单地C的copy程序。
 
-``` C
+```C
 #include <stdio.h>
 void copy() {
-	int c;
-	while ((c=getchar()) != EOF)
-		putchar(c);
+    int c;
+    while ((c=getchar()) != EOF)
+        putchar(c);
 }
 ```
 
-getchar()函数从STDIN中读取，STDIN是哪种设备？putchar()函数写入STDOUT里，这又是哪种设备？这些函数是多态的，他们的行为依赖于STDIN和STDOUT的类型。
+getchar\(\)函数从STDIN中读取，STDIN是哪种设备？putchar\(\)函数写入STDOUT里，这又是哪种设备？这些函数是多态的，他们的行为依赖于STDIN和STDOUT的类型。
 
-就像STDIN和STDOUT是Java风格的接口一样，每个设备都有各自的实现。当然，在C程序的示例中没有接口，那么调用getchar()如何实际地得到字符读取的设备驱动的交付呢？
+就像STDIN和STDOUT是Java风格的接口一样，每个设备都有各自的实现。当然，在C程序的示例中没有接口，那么调用getchar\(\)如何实际地得到字符读取的设备驱动的交付呢？
 
 这个问题的答案非常简单。UNIX操作系统要求每个IO设备驱动程序提供五个标准函数：open, close, read, write和seek。这些函数的签名对于每个IO驱动程序都必须相同。
 
 FILE数据结构包含五个函数指针。在我们的例子中，它可能看起来像这样：
 
-``` C
+```C
 struct FILE {
-	void (*open)(char* name, int mode);
-	void (*close)();
-	int (*read)();
-	void (*write)(char);
-	void (*seek)(long index, int mode);
+    void (*open)(char* name, int mode);
+    void (*close)();
+    int (*read)();
+    void (*write)(char);
+    void (*seek)(long index, int mode);
 };
 ```
 
 控制台的IO驱动程序将定义这些函数，上传FILE的数据结构的地址，类似：
 
-``` C
+```C
 #include "file.h"
 void open(char* name, int mode) {/*...*/}
 void close() {/*...*/};
@@ -195,16 +199,17 @@ void seek(long index, int mode) {/*...*/}
 
 struct FILE console = {open, close, read, write, seek};
 ```
-现在如果STDIN被定义成FILE*，如果它指向控制台的数据结构，那么getchar()的实现也许是这样的：
 
-``` C
+现在如果STDIN被定义成FILE\*，如果它指向控制台的数据结构，那么getchar\(\)的实现也许是这样的：
+
+```C
 extern struct FILE* STDIN;
 int getchar() {
-	return STDIN->read();
+    return STDIN->read();
 }
 ```
 
-换句话说，getchar()只是调用由STDIN指向的FILE数据结构的read指针指向的函数。
+换句话说，getchar\(\)只是调用由STDIN指向的FILE数据结构的read指针指向的函数。
 
 这个简单的技巧是面向对象所有多态的基础。例如，在C++中，类中的每个虚函数在一个名为vtable的表中都有一个指针，所有对虚函数的调用都通过该表。派生类的构造函数只是将这些函数的版本加载到正在创建的对象的vtable中。
 
@@ -236,11 +241,15 @@ int getchar() {
 
 想象一下，在安全和方便的多态性机制可用之前，软件是什么样的。在典型的调用树中，main函数调用高层函数，高层函数调用中级函数，中层函数调用低层函数。然而，在那个调用树中，源代码的依赖关系客观地跟随着控制流程（图5.1）。
 
+![](/assets/5/Figure_5.1_Source_code_dependencies_versus_flow_of_control.png)
+
 图5.1 源代码依赖性与控制流
 
 对于main函数调用其中一个高层函数，它不得不将包含该函数的模块的名称包含在代码中，在C中，这是一个`#include`语句。在Java中，这是一个`import`语句。在C＃中，它是一个`using`语句。事实上，每个调用者都被迫提到包含被调用者的模块的名称。
 
 这个要求让软件架构师别无选择。控制流由系统的行为决定，而源代码依赖性则由控制流程决定。然而，当多态性发挥作用时，可能会发生非常不同的事情（图5.2）。
+
+![](/assets/5/Figure_5.2_Dependency_inversion.png)
 
 图5.2 依赖倒置
 
@@ -258,7 +267,7 @@ int getchar() {
 
 你可以用这个力量做什么？例如，您可以重新排列系统的源代码依赖关系，以便database（数据库）和UI（用户界面）依赖business rules（业务规则）（图5.3），而不是相反。
 
-图5.3 数据库和UI依赖于业务规则
+![](/assets/5/Figure_5.3_The_database_and_the_user_interface_depend_on_the_business_rules.png)图5.3 数据库和UI依赖于业务规则
 
 这意味着UI和数据库可以是业务规则的插件。这意味着业务规则的源代码永远不会提到UI或数据库。
 
@@ -273,9 +282,4 @@ int getchar() {
 ## 小结
 
 什么是面向对象？这个问题有很多意见和很多答案。但是，对于软件架构师来说，答案很明显：面向对象是通过使用多态性来获得对系统中每个源代码依赖的绝对控制的能力。它允许架构师创建一个插件架构，其中包含高层策略的模块独立于包含低层细节的模块。底层的细节被放到插件模块中，这些插件模块可以独立于包含高层策略的模块进行部署和开发。
-
-
-
-
-
 
