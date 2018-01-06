@@ -56,8 +56,6 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 
 [^1]: The Java guys had dreams of server farms dancing in their heads.
-
-[^2]: 译注：数据传输是双向的，如A和B通信，A发送给B，B接收后有返回回给A，这是一个过程，包含了四种消息协议。
-
+[^2]: 译注：数据传输是双向的，如A和B通信，A发送给B，B接收后有返回回给A，这是一个过程，包含了四种消息协议。 
 [^3]: data to which the programmer had no access, since all the programmer had was a name, address, and phone number.
 
