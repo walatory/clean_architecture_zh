@@ -24,6 +24,5 @@
   * [第十五章 架构是什么？](di-shi-wu-zhang-jia-gou-shi-shi-yao-ff1f.md)
   * [第十六章 独立性](di-shi-liu-zhang-du-li-xing.md)
   * [第十七章 边界：画线](di-shi-qi-zhang-bian-jie-ff1a-hua-xian.md)
-
-
+* [第十八章 边界剖析](di-shi-ba-zhang-bian-jie-pou-xi.md)
 
