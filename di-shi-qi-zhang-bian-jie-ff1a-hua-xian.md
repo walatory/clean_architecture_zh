@@ -86,6 +86,7 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 你可以在图17.1中清楚地看到这一点。BusinessRules使用接口DatabaseInterface来加载和保存数据。DatabaseAccess实现该接口并执行实际数据库的操作。
 
+![](/assets/17/Figure_17.1_The_database_behind_an_interface.png)
 
 图17.1 数据库隐藏在接口后面
 
@@ -93,6 +94,7 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 边界线在哪里？边界线是通过继承关系绘制的，就在DatabaseInterface下面（图17.2）。
 
+![](/assets/17/Figure_17.2_The_boundary_line.png)
 
 图17.2 边界线
 
@@ -100,6 +102,7 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 现在让我们拉回一点。我们将看看包含许多业务规则的组件，以及包含数据库及其所有访问类的组件（图17.3）。
 
+![](/assets/17/Figure_17.3_The_business_rules_and_database_components.png)
 
 图17.3 业务规则组件和数据库组件
 
@@ -121,6 +124,7 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 因此，我们再次看到GUI和BusinessRules组件由边界线分隔（图17.4）。我们再次看到，不太相关的组件取决于更相关的组件。箭头显示哪个组件知道另一个组件，因此哪个组件关心另一个组件，即GUI关心BusinessRules。
 
+![](/assets/17/Figure_17.4_The_boundary_between_GUI_and_BusinessRules_components.png)
 
 图17.4 GUI和BusinessRules组件之间的边界
 
@@ -132,6 +136,7 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 
 事实上，软件开发技术的历史就是如何方便地创建插件来建立可扩展和可维护的系统架构的故事。核心业务规则与那些可选或者可以以多种不同形式实现的组件分开独立（图17.5）。
 
+![](/assets/17/Figure_17.5_Plugging_in_to_the_business_rules.png)
 
 图17.5 插入进业务规则
 
@@ -146,6 +151,8 @@ P公司的故事不是个例。我在很多地方见过很多次。事实上，P
 考虑ReSharper和Visual Studio之间的关系。这些组件由完全不同的公司完全不同的开发团队生产。事实上，ReSharper的制造商JetBrains居住在俄罗斯。微软当然居住在华盛顿州的雷德蒙德。很难想象两个开发团队如此独立的。
 
 哪个团队可以危害对方？哪个队伍对另一个队伍是免疫的？从依赖结构看得出来（图17.6）。 ReSharper的源代码取决于Visual Studio的源代码。因此，ReSharper团队完全无法干扰Visual Studio团队。但是Visual Studio团队可以完全禁用ReSharper团队的东西，如果他们愿意的话。
+
+![](/assets/17/Figure_17.6_ReSharper_depends_on_Visual_Studio.png)
 
 图17.6 ReSharper依赖于Visual Studio
 
@@ -165,12 +172,9 @@ GUI相比业务规则在不同的时间以不同的速度改变，并且由于�
 
 你应该认识到这是依赖倒置原则（DIP）和稳定抽象原则（SAP）的一个应用。依赖性箭头被安排从较低层的细节指向较高层的抽象。
 
-
 [^1]: The Java guys had dreams of server farms dancing in their heads.
-[^2]: 译注：数据传输是双向的，如A和B通信，A发送给B，B接收后有返回回给A，这是一个过程，包含了四种消息协议。
+
 [^3]: data to which the programmer had no access, since all the programmer had was a name, address, and phone number.
+
 [^4]: The IO is irrelevant.
-
-
-
 
