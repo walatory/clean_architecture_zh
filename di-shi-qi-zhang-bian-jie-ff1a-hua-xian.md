@@ -174,6 +174,8 @@ GUI相比业务规则在不同的时间以不同的速度改变，并且由于�
 
 [^1]: The Java guys had dreams of server farms dancing in their heads.
 
+[^2]: note：数据传输是双向的，如A和B通信，A发送给B，B接收后有返回回给A，这是一个过程，包含了四种消息协议。
+
 [^3]: data to which the programmer had no access, since all the programmer had was a name, address, and phone number.
 
 [^4]: The IO is irrelevant.
