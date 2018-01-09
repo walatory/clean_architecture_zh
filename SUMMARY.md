@@ -30,4 +30,5 @@
   * [第二十一章 架构的呐喊](di-er-shi-yi-zhang-jia-gou-de-ne-han.md)
   * [第二十二章 整洁的架构](di-er-shi-er-zhang-zheng-ji-de-jia-gou.md)
 * [第六部分 细节](di-liu-bu-fen-xi-jie.md)
+* [第七部分 附录](di-qi-bu-fen-fu-lu.md)
 
