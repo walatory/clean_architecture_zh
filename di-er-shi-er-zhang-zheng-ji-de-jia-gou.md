@@ -2,22 +2,24 @@
 
 在过去的几十年中，我们已经看到了关于系统架构的一系列想法。他们包括：
 
- - 六角架构（也称为端口和适配器），由Alistair Cockburn开发，并在由Steve Freeman和Nat Pryce在他们的好书“用测试开发面向对象软件”[^1]中采编。
- - DCI，来自James Coplien和Trygve Reenskaug
- - BCE，介绍由Ivar Jacobson撰写的书：“面向对象的软件工程：一种用例驱动的方法”[^2]
+* 六角架构（也称为端口和适配器），由Alistair Cockburn开发，并在由Steve Freeman和Nat Pryce在他们的好书“用测试开发面向对象软件”[^1]中采编。
+* DCI，来自James Coplien和Trygve Reenskaug
+* BCE，介绍由Ivar Jacobson撰写的书：“面向对象的软件工程：一种用例驱动的方法”[^2]
 
 尽管这些架构在细节上都有所不同，但它们非常相似。他们都有相同的目标，这是关注点的分离。他们都通过将软件分成几层来实现这种分离。每个业务规则至少有一个层，用户和系统接口至少有一个层。
 
 这些体系结构中的每一个产生的系统具有以下特征：
 
- - 独立于框架。这个架构并不依赖于一些功能强大的软件库的存在。这允许你使用这样的框架作为工具，而不是强迫你将系统塞进它有限的约束中。
- - 可测试。业务规则可以在没有UI，数据库，Web服务器或任何其他外部元素的情况下进行测试。 
- - 独立于用户界面。用户界面可以很容易地更改，而无需更改系统的其余部分。例如，Web UI可以替换为控制台UI，而无需更改业务规则。 
- - 独立于数据库。您可以换出Oracle或SQL Server的Mongo，BigTable，CouchDB，或其他。你的业​​务规则不绑定到数据库。
- 
- - 独立于任何外部机构。事实上，你的商业规则根本不了解与外界的接口。
+* 独立于框架。这个架构并不依赖于一些功能强大的软件库的存在。这允许你使用这样的框架作为工具，而不是强迫你将系统塞进它有限的约束中。
+* 可测试。业务规则可以在没有UI，数据库，Web服务器或任何其他外部元素的情况下进行测试。 
+* 独立于用户界面。用户界面可以很容易地更改，而无需更改系统的其余部分。例如，Web UI可以替换为控制台UI，而无需更改业务规则。 
+* 独立于数据库。您可以换出Oracle或SQL Server的Mongo，BigTable，CouchDB，或其他。你的业​​务规则不绑定到数据库。
+
+* 独立于任何外部机构。事实上，你的商业规则根本不了解与外界的接口。
 
 图22.1中的图表试图将所有这些架构整合为一个可行的想法。
+
+![](/assets/22/Figure_22.1_The_clean_architecture.png)
 
 图22.1 整洁的架构
 
@@ -26,6 +28,7 @@
 图22.1中的同心圆表示软件的不同区域。一般来说，越深入圆心，软件层级就越高。外圈是机制。内圈是策略。
 
 使此架构运作的重要规则是依赖规则：
+
 > 源代码依赖关系必须仅指向内部，朝向更高层级的策略。
 
 内圈没有任何东西对外圈的事情有所了解。特别是外圈的声明的名字不能在内圈的代码中提及。这包括函数，类，变量或任何其他指定的软件实体。
@@ -86,6 +89,8 @@
 
 图22.2中的图显示了使用数据库的基于Web的Java系统的典型场景。Web服务器从用户那里收集输入数据，并将其交给左上角的Controller。Controller将这些数据打包成一个普通的旧Java对象，并通过InputBoundary将这个对象传递给UseCaseInteractor。UseCaseInteractor解释这些数据并使用它来控制实体的动向。它还使用DataAccessInterface将这些实体使用的数据从数据库中带入内存。完成后，UseCaseInteractor从实体收集数据，并将OutputData构造为另一个普通的旧Java对象。OutputData然后通过OutputBoundary接口传递给Presenter。
 
+![](/assets/22/Figure_22.2_A_typical_scenario_for_a_web-based_Java_system_utilizing_a_database.png)
+
 图22.2 使用数据库的基于Web的Java系统的典型场景
 
 Presenter的工作是将OutputData重新打包为ViewModel，这是另一个普通的旧Java对象。ViewModel主要包含视图用于显示数据的Strings和标志。而OutputData可能包含Date对象，则Presenter将加载ViewModel，其中相应的Strings已经为用户正确格式化。货币对象或任何其他业务相关数据也是如此。按钮和MenuItem名称放置在ViewModel中，正如标志告诉View是否这些Buttons和MenuItems应该是灰色的。
@@ -99,4 +104,6 @@ Presenter的工作是将OutputData重新打包为ViewModel，这是另一个普�
 遵守这些简单的规则并不困难，而且会为你节省很多麻烦。通过将软件分为多个层级并符合依赖规则，你将创建一个本质上可测试的系统，并具有它蕴藏的所有的好处。当系统的任何外部部件过时（比如数据库或Web框架）时，可以用最少的代价取代那些过时的元素。
 
 [^1]: Growing Object Oriented Software with Tests
+
 [^2]: Object Oriented Software Engineering: A Use-Case Driven Approach
+
