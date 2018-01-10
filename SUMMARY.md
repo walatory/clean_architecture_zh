@@ -31,4 +31,5 @@
   * [第二十二章 整洁的架构](di-er-shi-er-zhang-zheng-ji-de-jia-gou.md)
 * [第六部分 细节](di-liu-bu-fen-xi-jie.md)
 * [第七部分 附录](di-qi-bu-fen-fu-lu.md)
+* [第二十三章 展示器和谦卑对象](di-er-shi-san-zhang-zhan-shi-qi-he-qian-bei-dui-xiang.md)
 
