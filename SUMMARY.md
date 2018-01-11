@@ -31,6 +31,7 @@
   * [第二十二章 整洁的架构](di-er-shi-er-zhang-zheng-ji-de-jia-gou.md)
   * [第二十三章 展示器和谦卑对象](di-er-shi-san-zhang-zhan-shi-qi-he-qian-bei-dui-xiang.md)
   * [第二十四章 局部的边界](di-er-shi-si-zhang-ju-bu-de-bian-jie.md)
+  * [第二十五章 层级和边界](di-er-shi-wu-zhang-ceng-ji-he-bian-jie.md)
 * [第六部分 细节](di-liu-bu-fen-xi-jie.md)
 * [第七部分 附录](di-qi-bu-fen-fu-lu.md)
 
