@@ -33,6 +33,7 @@
   * [第二十四章 局部的边界](di-er-shi-si-zhang-ju-bu-de-bian-jie.md)
   * [第二十五章 层级和边界](di-er-shi-wu-zhang-ceng-ji-he-bian-jie.md)
   * [第二十六章 Main组件](di-er-shiliu-zhang-main-zu-jian.md)
+  * [第二十七章 服务：亦大和亦小](di-er-shi-qi-zhang-fu-wu-ff1a-yi-da-he-yi-xiao.md)
 * [第六部分 细节](di-liu-bu-fen-xi-jie.md)
 * [第七部分 附录](di-qi-bu-fen-fu-lu.md)
 
