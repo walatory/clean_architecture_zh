@@ -14,11 +14,11 @@ James Grenning 作
 
 嵌入式软件由于受硬件依赖性的影响而被剥夺潜在的长寿命并不罕见。我喜欢Doug对固件的定义，但是让我们看看那里有哪些其他的定义。我发现了这些替代品：
 
- - “固件保存在ROM，EPROM或闪存等非易失性存储设备中。”（https://en.wikipedia.org/wiki/Firmware）
- - “固件是一个软件程序或一组指令硬件设备“（https://techterms.com/definition/firmware）
- - ”固件是嵌入在一个硬件中的软件“（https://www.lifewire.com/what- is-firmware-2625881 ）
- - 固件是“已经写入只读存储器（ROM）的软件（程序或数据）”（http://www.webopedia.com/TERM/F/firmware.html）
- 
+* “固件保存在ROM，EPROM或闪存等非易失性存储设备中。”（[https://en.wikipedia.org/wiki/Firmware）](https://en.wikipedia.org/wiki/Firmware）)
+* “固件是一个软件程序或一组指令硬件设备“（[https://techterms.com/definition/firmware）](https://techterms.com/definition/firmware）)
+* ”固件是嵌入在一个硬件中的软件“（[https://www.lifewire.com/what-](https://www.lifewire.com/what-) is-firmware-2625881 ）
+* "固件是“已经写入只读存储器（ROM）的软件（程序或数据）”（[http://www.webopedia.com/TERM/F/firmware.html）](http://www.webopedia.com/TERM/F/firmware.html）)
+
 Doug的声明让我意识到，这些被接受的固件定义是错误的，至少是过时的。固件并不意味着代码居住在ROM中。它不是固件，因为它存储的地方;相反，它是固件，因为它依赖于硬件，随着硬件的发展，它有多难改变。硬件的发展（停下来看看你的手机是否有证据），所以我们应该考虑到这个现实。
 
 我没有反对固件或固件工程师（我已经知道自己写一些固件）。但是我们真正需要的是更少的固件和更多的软件。事实上，我很失望，固件工程师写这么多的固件！
@@ -39,10 +39,10 @@ Doug的声明让我意识到，这些被接受的固件定义是错误的，至�
 
 为什么这么多潜在的嵌入式软件成为固件？看来，大部分的重点是让嵌入式代码工作，并没有太多的重点放在构建一个很长的使用寿命。Kent Beck介绍了软件开发中的三项活动（所引用的文字是肯特的话，斜体是我的评论）：
 
- 1.“先让它工作”。如果它不起作用，你就会失业。
- 2.“然后做对”。重构代码，以便你和其他人能够理解它，并随着需求的变化或更好的理解而发展。
+1.“先让它工作”。如果它不起作用，你就会失业。  
+ 2.“然后做对”。重构代码，以便你和其他人能够理解它，并随着需求的变化或更好的理解而发展。  
  3.“然后让它变快。”重构“需要”性能的代码。
- 
+
 我在野外看到的大多数嵌入式系统软件似乎都是用“让它工作”的方式来编写的 ——也许也是对“快速实现”目标的痴迷，通过在每个机会上添加微优化。在“神话人月”中，弗雷德·布鲁克斯建议我们“打算抛弃一个人”。肯特和弗雷德给出了几乎相同的建议：了解什么是有效的，然后做出更好的解决方案。
 
 嵌入式软件在解决这些问题时并不特别。大多数非嵌入式应用程序都是为了工作而构建的，很少考虑使代码适合长时间使用。
@@ -51,7 +51,7 @@ Doug的声明让我意识到，这些被接受的固件定义是错误的，至�
 
 作为通过应用程序测试时生成的代码示例，请查看位于小型嵌入式系统的一个文件中的这些函数：
 
-``` C
+```C
 ISR(TIMER1_vect) { ... }
 ISR(INT2_vect) { ... }
 void btn_Handler(void) { ... }
@@ -72,18 +72,20 @@ void uC_Sleep(void) { ... }
 ```
 
 该函数列表按照我在源文件中找到的顺序排列。现在我将他们分开，并关注他们：
- - 具有域逻辑的功能
- 
-``` C
+
+* 具有域逻辑的功能
+
+```C
 float calc_RPM(void) { ... }
 void Do_Average(void) { ... }
 void Get_Next_Measurement(void) { ... }
 void Zero_Sensor_1(void) { ... }
 void Zero_Sensor_2(void) { ... }
 ```
- - 建立硬件平台的功能
- 
-``` C
+
+* 建立硬件平台的功能
+
+```C
 ISR(TIMER1_vect) { ... }*
 ISR(INT2_vect) { ... }
 void uC_Sleep(void) { ... }
@@ -93,18 +95,20 @@ void Dev_Control(char Activation) { ... }
 A Function that can get A/D input readings from the hardware
 static char Read_RawData(void) { ... }
 ```
- - 将值存储到持久性存储的函数
 
-``` C
+* 将值存储到持久性存储的函数
+
+```C
 char Load_FLASH_Setup(void) { ... }
 void Save_FLASH_Setup(void) { ... }
 void Store_DataSet(void) { ... }
 float bytes2float(char bytes[4]) { ... }
 void Recall_DataSet(void) { ... }
 ```
- - 函数不会做它的名字所暗示的
- 
-``` C
+
+* 函数不会做它的名字所暗示的
+
+```C
 void Sensor_init(void) { ... }
 ```
 
@@ -121,12 +125,12 @@ void Sensor_init(void) { ... }
 其中一个特殊的嵌入问题是目标——硬件瓶颈。当嵌入式代码的结构没有应用整洁的架构原则和实践时，你经常会遇到只能在目标上测试代码的情况。如果目标是唯一可以进行测试的地方，那么目标硬件瓶颈会让你放慢速度。
 
 ### 一个干净的嵌入式架构是一个可测试的嵌入式架构
+
 让我们看看如何将一些架构原理应用于嵌入式软件和固件，以帮助您消除目标硬件瓶颈。
 
 #### 层级
 
 分层有许多方法。我们从三层开始，如图29.1所示。底部是硬件。正如道格警告我们的，由于技术进步和摩尔定律，硬件将会改变。部件变得过时，新部件使用更少的功率或提供更好的性能或更便宜。不管是什么原因，作为一名嵌入式工程师，当硬件发生不可避免的变化时，我不希望有比这更大的工作。
-
 
 图29.1 三层结构
 
@@ -140,11 +144,9 @@ void Sensor_init(void) { ... }
 
 软件和固件之间的界限通常与代码和硬件之间的界限不太清楚，如图29.3所示。
 
-
 图29.3 软件和固件之间的界限比代码和硬件之间的界线模糊一些
 
 作为一名嵌入式软件开发人员，你的工作之一就是巩固这一路线。软件和固件之间的边界名称是硬件抽象层（HAL）（图29.4）。这不是一个新的想法：自从Windows之前，它已经在PC上。
-
 
 图29.4硬件抽象层
 
@@ -166,37 +168,36 @@ HAL存在于位于其之上的软件，其API应该根据软件的需要量身�
 
 让我们来看看这个为ACME系列DSP设计的头文件——你知道，Wile E. Coyote使用的是：
 
-``` C
+```C
 #ifndef _ACME_STD_TYPES
 #define _ACME_STD_TYPES
 #if defined(_ACME_X42)
-	typedef unsigned int Uint_32;
-	typedef unsigned short Uint_16;
-	typedef unsigned char Uint_8;
-	
-	typedef int Int_32;
-	typedef short Int_16;
-	typedef char Int_8;
-#elif defined(_ACME_A42)
-	typedef unsigned long Uint_32;
-	typedef unsigned int Uint_16;
-	typedef unsigned char Uint_8;
-	
-	typedef long Int_32;
-	typedef int Int_16;
-	typedef char Int_8;
-#else
-	#error <acmetypes.h> is not supported for this environment
-#endif
-#endif
+    typedef unsigned int Uint_32;
+    typedef unsigned short Uint_16;
+    typedef unsigned char Uint_8;
 
+    typedef int Int_32;
+    typedef short Int_16;
+    typedef char Int_8;
+#elif defined(_ACME_A42)
+    typedef unsigned long Uint_32;
+    typedef unsigned int Uint_16;
+    typedef unsigned char Uint_8;
+
+    typedef long Int_32;
+    typedef int Int_16;
+    typedef char Int_8;
+#else
+    #error <acmetypes.h> is not supported for this environment
+#endif
+#endif
 ```
 
 `acmetypes.h`头文件不应该直接使用。如果你这样做，你的代码被绑定到一个ACME DSP上。你说，你正在使用ACME DSP，那么有什么危害？除非包含此这个头文件，否则无法编译你的代码。 如果你使用标题并定义了`_ACME_X42或_ACME_A42`，那么如果你尝试将目标代码置于非目标位置，则整数将会是错误的大小。如果这还不够糟，总有一天你会想把你的应用程序移植到另一个处理器上，而你不会选择可移植性，也不会限制什么文件知道ACME，从而使得这个任务变得更加困难。
 
 而不是使用`acmetypes.h`，你应该尝试遵循更加标准化的路径并使用`stdint.h`。但是如果目标编译器不提供`stdint.h`呢？ 你可以写这个头文件。 你为目标版本编写的`stdint.h`使用`acmetypes.h`来进行目标编译，如下所示：
 
-``` C
+```C
 #ifndef _STDINT_H_
 #define _STDINT_H_
 
@@ -215,31 +216,30 @@ typedef Int_8 int8_t;
 
 让你的嵌入式软件和固件使用stdint.h有助于保持你的代码清洁和便携。当然，所有的软件都应该是独立于处理器的，但并不是所有的固件都可以。下一个代码片段利用C的特殊扩展，使你的代码可以访问微控制器中的外设。这很可能是你的产品使用这个微控制器，以便你可以使用它的集成外设。该函数向串行输出端口输出一个表示“hi”的行。 （这个例子是基于野外的真实代码。）
 
-
-``` C
+```C
 void say_hi()
 {
-	IE = 0b11000000;
-	SBUF0 = (0x68);
-	while(TI_0 == 0);
-	TI_0 = 0;
-	SBUF0 = (0x69);
-	while(TI_0 == 0);
-	TI_0 = 0;
-	SBUF0 = (0x0a);
-	while(TI_0 == 0);
-	TI_0 = 0;
-	SBUF0 = (0x0d);
-	while(TI_0 == 0);
-	TI_0 = 0;
-	IE = 0b11010000;
+    IE = 0b11000000;
+    SBUF0 = (0x68);
+    while(TI_0 == 0);
+    TI_0 = 0;
+    SBUF0 = (0x69);
+    while(TI_0 == 0);
+    TI_0 = 0;
+    SBUF0 = (0x0a);
+    while(TI_0 == 0);
+    TI_0 = 0;
+    SBUF0 = (0x0d);
+    while(TI_0 == 0);
+    TI_0 = 0;
+    IE = 0b11010000;
 }
 ```
 
 这个小功能有很多问题。有一件事可能会跳出你的存在`0b11000000`。这个二进制符号很酷;C可以做到吗？很不幸的是，不行。其他一些问题直接使用自定义的C扩展与此代码相关：
 
-`IE`：中断使能位。
-`SBUF0`：串行输出缓冲器。
+`IE`：中断使能位。  
+`SBUF0`：串行输出缓冲器。  
 `TI_0`：串行发送缓冲区空中断。
 
 读取1表示缓冲区为空。大写的变量实际上是访问微控制器内置的外设。如果要控制中断和输出字符，则必须使用这些外设。是的，这很方便——但不是C。
@@ -255,7 +255,6 @@ HAL是必要的，但它是足够的吗？在裸机嵌入式系统中，你可�
 为了给你的嵌入式代码提供一个很好的机会，你必须将操作系统视为一个细节，并防止操作系统依赖性。
 
 该软件通过操作系统访问操作环境的服务。操作系统是将软件与固件分开的层（图29.5）。直接使用操作系统可能会导致问题。例如，如果你的RTOS供应商被其他公司购买，版税上涨，质量下降怎么办？如果你的需求发生变化，你的RTOS不具备你现在需要的功能，该怎么办？你将不得不改变很多代码。由于新操作系统的API，这些不仅仅是简单的语法变化，而且还可能必须在语义上适应新操作系统的不同功能和原语。
-
 
 图29.5 在操作系统中添加
 
@@ -296,16 +295,4 @@ OSAL可以帮助提供测试点，以便软件层中有价值的应用程序代�
 只能在目标硬件上进行测试，不利于产品的长期健康。一个干净的嵌入式架构是有利于你的产品的长期健康。
 
 [^1]: don't repeat yourself 别重复造轮子
-
-
-
-
-
-
-
-
-
-
-
-
 
