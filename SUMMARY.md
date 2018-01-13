@@ -39,5 +39,6 @@
 * [第六部分 细节](di-liu-bu-fen-xi-jie.md)
   * [第三十章 数据库是一个细节](di-liu-bu-fen-xi-jie/di-san-shi-zhang-shu-ju-ku-shi-yi-ge-xi-jie.md)
   * [第三十一章 Web是一个细节](di-liu-bu-fen-xi-jie/di-san-shi-yi-zhang-web-shi-yi-ge-xi-jie.md)
+  * [第三十二章 框架是细节](di-liu-bu-fen-xi-jie/di-san-shi-er-zhang-kuang-jia-shi-xi-jie.md)
 * [第七部分 附录](di-qi-bu-fen-fu-lu.md)
 
