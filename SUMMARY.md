@@ -43,4 +43,5 @@
   * [第三十三章 案例研究：视频销售](di-liu-bu-fen-xi-jie/di-san-shi-san-zhang-an-li-yan-jiu-ff1a-shi-pin-xiao-shou.md)
   * [第三十四章 补充的章节](di-liu-bu-fen-xi-jie/di-san-shi-si-zhang-bu-chong-de-zhang-jie.md)
 * [第七部分 附录](di-qi-bu-fen-fu-lu.md)
+  * [附录A 架构考古史](di-qi-bu-fen-fu-lu/fu-lu-a-jia-gou-kao-gu-shi.md)
 
