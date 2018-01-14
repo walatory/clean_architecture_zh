@@ -114,7 +114,7 @@ Java中的访问修饰符并不完美，但忽略它们只是自找麻烦。将J
 
 从左到右，在“层级划分包”方法中，OrdersService和OrdersRepository接口需要需要声明为public，因为它们具有来自定义包之外的类的入站依赖性（inbound dependencies）。相比之下，实现类（OrdersServiceImpl和JdbcOrdersRepository）可以做得更严格（包protected）。没有人需要了解他们;他们是一个实现细节。
 
-在“特性划分包”的方法中，OrdersController提供了进入包装的唯一入口点，所以其他一切都可以设包为protected。这里要注意的一点是，在这个包之外的代码库中没有其他任何东西可以访问与订单相关的信息，除非它们通过控制器。这可能是也可能不是可取的。
+在“功能划分包”的方法中，OrdersController提供了进入包装的唯一入口点，所以其他一切都可以设包为protected。这里要注意的一点是，在这个包之外的代码库中没有其他任何东西可以访问与订单相关的信息，除非它们通过控制器。这可能是也可能不是可取的。
 
 在端口和适配器方法中，OrdersService和Orders接口具有来自其他包的入站依赖关系，因此需要声明为public。同样，实现类可以在运行时进行包protected和依赖注入。
 
